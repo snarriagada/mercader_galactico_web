@@ -1,19 +1,18 @@
 from django import forms
 
 class CreateNewList(forms.Form):
-    i = forms.IntegerField(label="I", required=False)
-    v = forms.IntegerField(label="V", required=False)
-    x = forms.IntegerField(label="X", required=False)
-    l = forms.IntegerField(label="L", required=False)
-    c = forms.IntegerField(label="C", required=False)
-    d = forms.IntegerField(label="D", required=False)
-    m = forms.IntegerField(label="M", required=False)
+    i = forms.CharField(label="I", required=False)
+    v = forms.CharField(label="V", required=False)
+    x = forms.CharField(label="X", required=False)
+    l = forms.CharField(label="L", required=False)
+    c = forms.CharField(label="C", required=False)
+    d = forms.CharField(label="D", required=False)
+    m = forms.CharField(label="M", required=False)
     gold = forms.CharField(label="Gold Conversion", required=False)
     silver = forms.CharField(label="Silver Conversion", required=False)
     iron = forms.CharField(label="Iron Conversion", required=False)
-
-class CreateQuestions(forms.Form):
     question = forms.CharField(label="Your Questions", widget=forms.Textarea)
+
 '''
 class CreateQuestions(forms.Form):
     CHOICES = (('Gold', 'Gold'),('Silver', 'Silver'),('Iron', 'Iron'))

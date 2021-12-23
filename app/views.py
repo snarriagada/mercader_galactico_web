@@ -4,8 +4,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
-from .forms import CreateNewList, CreateQuestions
+from .forms import CreateNewList
 from django.forms import formset_factory
+from .helpers import *
 
 def index(request):
     if request.method == "POST":
@@ -19,32 +20,18 @@ def index(request):
 def questions(request):
     #mensaje = "Dato ingresado para I: %r" %request.GET["i"]
     if request.method == "POST":
-
-        form_questions = CreateQuestions(request.POST)
-        if form_questions.is_valid():
-            print("Q ", form_questions.cleaned_data)
-        
         form_data = CreateNewList(request.POST)
         if form_data.is_valid():
             form_data = form_data.cleaned_data
+            print("form data: ", form_data)
+            # entregar form data a una funcion auxiliar
+            conversion = set_conversion_data(form_data)
+            metals_price = set_prices_data(form_data)
+            handle_questions(form_data, conversion, metals_price)
+
     else:
-        form_questions = CreateQuestions()
         form_data = None
 
-    return render(request, 'app/questions.html',
-     {"form_questions": form_questions, "form_data": form_data})
-
-
-def result_question(request):
-    #mensaje = "Dato ingresado para I: %r" %request.GET["i"]
-    if request.method == "POST":
-
-        form_questions = CreateQuestions(request.POST)
-        if form_questions.is_valid():
-            print("Q ", form_questions.cleaned_data)
-
-    else:
-        form_questions = CreateQuestions()
-
     return render(request, 'app/results.html',
-     {"form_questions": form_questions.cleaned_data})
+     {"form_data": form_data}) #enviar respuestas aqui
+
