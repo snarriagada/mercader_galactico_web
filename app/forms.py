@@ -13,10 +13,8 @@ class CreateNewList(forms.Form):
     iron = forms.CharField(label="Iron Conversion", required=False)
 
 class CreateQuestions(forms.Form):
-    CHOICES = (('Gold', 'Gold'),('Silver', 'Silver'),('Iron', 'Iron'))
-    metal = forms.ChoiceField(choices=CHOICES, required=True)
-    quantity = forms.CharField(label="Galactic quantity", required=True)
-
+    question = forms.CharField(label="Your Questions", widget=forms.Textarea)
+'''
 class CreateQuestions(forms.Form):
     CHOICES = (('Gold', 'Gold'),('Silver', 'Silver'),('Iron', 'Iron'))
     metal = forms.ChoiceField(choices=CHOICES, required=True)
@@ -24,7 +22,7 @@ class CreateQuestions(forms.Form):
 
 class Convert(forms.Form):
     quantity = forms.CharField(label="Galactic quantity", required=True)
-'''
+
 class MetalPrices(forms.Form):
     CHOICES = (('Gold', 'Gold'),('Silver', 'Silver'),('Iron', 'Iron'))
     metal = forms.ChoiceField(choices=CHOICES, required=False)

@@ -3,7 +3,7 @@
     <h3>Datos ingresados:</h3>
     {{ form_data}}
 
-    <form action="resultsQuestion/" method="POST">
+    <form action="results/" method="POST">
         {{ form.management_form}}
         {% csrf_token %}
         <h3> 3º Step:  ASK!</h3>
@@ -13,15 +13,6 @@
 
     </form>
 
-    <form action="resultsConvert/" method="POST">
-      {{ form.management_form}}
-      {% csrf_token %}
-      <h3> 3º Step:  ASK!</h3>
-      {% csrf_token %}
-      {{form_convert.as_p}}
-      <input type="submit" value="Ir">
-
-  </form>
   <a href="/app">Ingresar datos nuevamente</a>
 
 {% endblock %}
