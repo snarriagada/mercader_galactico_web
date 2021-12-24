@@ -1,11 +1,80 @@
+{% load static %}
 {% block content %}
-<h1>MERCADER GALACTICO</h1>
+<div class="main-container">
+    <div class="title-box">
+        <h1>MERCADER GALACTICO</h1>
+    </div>
     <form action="questions/" method="POST">
-        <h3> 1º Step: Enter the galactic money denomination</h3>
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Ir">
+        <h2>Bienvenido viajero del espacio</h2>
+        <h3> Por favor, ingresa los datos según las siguientes instrucciones:</h3>
+        <h4>
+            <ul>
+                <li>
+                    En las casillas indicadas por los numeros romanos del I al M, ingresa
+                    el nombre respectivo de la equivalencia en moneda galáctica.
+                </li>
+                <li>
+                    En las casillas de "Cantidad de metal en créditos", ingresa el precio
+                    en creditos de una cantidad de metal como "glob prok is 50 credits".
+                </li>
+                <li>
+                    Por último, en la sección "Tus preguntas" puedes ingresar 2 tipos de preguntas
+                    en ingles. La primera, para conocer la conversion de una cantidad, es del tipo 
+                    "how much is glob glob ?". La segunda, para conocer el precio en créditos
+                    es del tipo "how many credits is glob glob gold ?".
+                    Puedes ingresar cuantas preguntas quieras, pero todas separadas por un ENTER
+                    y respetando un espacio antes del signo "?"
+                </li>    
+            </ul>
+        </h4>
 
+        {% csrf_token %}
+        <div class="title-box">
+                <table>
+                    {% for field in form %}
+                    <tr>
+                        <td>{{field.label}}</td>
+                        <td>{{field}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            <input type="submit" value="Ir">
+        </div>
     </form>
+</div>
 {% endblock %}
+
+<style>
+    h1 {
+    color: black;
+    margin-left: 20px;
+  }
+  ul {
+    color: black;
+    margin: 30px;
+
+  }
+  .main-container {
+    border: solid 5px black;
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+    padding-left: 70px;
+    padding-right: 70px;
+    margin: 70px;
+    list-style: none;
+    background-color: rgb(33, 81, 143);
+
+  }
+  .title-box {
+    text-align: center;
+    background-color: rgba(190, 237, 255, 0.8);
+    border: 0.2em solid rgb(49, 41, 61);
+    border-radius: 0.3em;
+    font-size: 1.5em;
+  }
+  table {
+  width: 100%;
+}
+</style>
 

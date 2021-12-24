@@ -92,4 +92,5 @@ def handle_questions(form_data, conversion, metals_price):
             print("I HAVE NO IDEA WHAT YOU ARE TALKING ABOUT")
 
     print("output lines: ", output_lines)
+    return output_lines
     

@@ -1,10 +1,52 @@
 {% block content %}
-<h1>MERCADER GALACTICO</h1>
-    <h3>Datos ingresados:</h3>
-    {{ form_data}}
+<div class="main-container">
+    <div class="title-box">
+        <h1>MERCADER GALACTICO</h1>
+    </div>
+    <h2> RESULTADOS</h2>
+    <div class="title-box">
+        <table>
+            {% for answer in output %}
+            <tr>
+                <td>{{answer}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/app">Inicio</a>
+    </div>
 
-<h1> RESULTADOS</h1>
-<a href="/app">Inicio</a>
+    
+</div>
+
+
 
 {% endblock %}
+
+<style>
+    h1 {
+    color: black;
+    margin-left: 20px;
+  }
+  .main-container {
+    border: solid 5px black;
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+    padding-left: 70px;
+    padding-right: 70px;
+    margin: 70px;
+    list-style: none;
+    background-color: rgb(33, 81, 143);
+  }
+  .title-box {
+    text-align: center;
+    background-color: rgba(190, 237, 255, 0.8);
+    border: 0.2em solid rgb(49, 41, 61);
+    border-radius: 0.3em;
+    font-size: 1.5em;
+  }
+  table {
+  border-spacing: 0.5rem;
+}
+</style>
 

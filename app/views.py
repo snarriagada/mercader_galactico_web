@@ -25,13 +25,15 @@ def questions(request):
             form_data = form_data.cleaned_data
             print("form data: ", form_data)
             # entregar form data a una funcion auxiliar
-            conversion = set_conversion_data(form_data)
-            metals_price = set_prices_data(form_data)
-            handle_questions(form_data, conversion, metals_price)
-
+            try:
+                conversion = set_conversion_data(form_data)
+                metals_price = set_prices_data(form_data)
+                output = handle_questions(form_data, conversion, metals_price)
+            except Exception as e:
+                output = ["ERROR: Los datos ingresados no siguen el formato indicado"]
     else:
         form_data = None
 
     return render(request, 'app/results.html',
-     {"form_data": form_data}) #enviar respuestas aqui
+     {"form_data": form_data, "output": output})
 

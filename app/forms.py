@@ -8,10 +8,10 @@ class CreateNewList(forms.Form):
     c = forms.CharField(label="C", required=False)
     d = forms.CharField(label="D", required=False)
     m = forms.CharField(label="M", required=False)
-    gold = forms.CharField(label="Gold Conversion", required=False)
-    silver = forms.CharField(label="Silver Conversion", required=False)
-    iron = forms.CharField(label="Iron Conversion", required=False)
-    question = forms.CharField(label="Your Questions", widget=forms.Textarea)
+    gold = forms.CharField(label="Cantidad de Oro en creditos", required=False)
+    silver = forms.CharField(label="Cantidad de Plata en creditos", required=False)
+    iron = forms.CharField(label="Cantidad de Hierro en creditos", required=False)
+    question = forms.CharField(label="Tus preguntas", widget=forms.Textarea)
 
 '''
 class CreateQuestions(forms.Form):
