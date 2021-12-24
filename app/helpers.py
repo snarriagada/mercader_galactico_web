@@ -1,6 +1,7 @@
 from .validations import *
 from .conversions import *
 
+
 def set_conversion_data(form_data):
     conversion = {}
     for number in form_data.keys():
@@ -55,9 +56,8 @@ def set_prices_data(form_data):
         if quantity[-1].lower() == "iron" : quantity.pop()
         metal = line[1]
         metals_price["iron"] = [quantity, metal]
-
     return metals_price
-
+    
 def handle_questions(form_data, conversion, metals_price):
     output_lines = []
     question = form_data["question"].lower()
@@ -75,6 +75,7 @@ def handle_questions(form_data, conversion, metals_price):
             deal_price = get_deal_price(q[1], unit_prices, conversion)
             response = q[1][:-1]+"is "+str(deal_price)+" Credits"
             output_lines.append(response)
+
         else:
             output_lines.append("I have no idea what you are talking about")
 

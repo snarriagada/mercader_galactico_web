@@ -1,4 +1,3 @@
-
 def get_deal_price(line, unit_prices, conversion):
     line = line.split(" ")
     if line[-1] == "?" : line.pop()  
@@ -33,6 +32,7 @@ def roman_to_integer(roman_number):
             i = i+1
         i = i+1
     return result
+
 
 def galactic_to_roman(line, conversion):
     if line[-1] == "?" : line.pop()

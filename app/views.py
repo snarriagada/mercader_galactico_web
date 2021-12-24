@@ -8,7 +8,6 @@ from .helpers import *
 def index(request):
     if request.method == "POST":
         form = CreateNewList(request.POST)
-        if form.is_valid():
     else:
         form = CreateNewList()
     return render(request, 'app/index.html', {"form": form})
@@ -24,6 +23,7 @@ def questions(request):
                 output = handle_questions(form_data, conversion, metals_price)
             except Exception as e:
                 output = ["ERROR: Los datos ingresados no siguen el formato indicado"]
+
     else:
         form_data = None
 
