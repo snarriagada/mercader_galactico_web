@@ -1,0 +1,1 @@
+web: gunicorn mercader_galactico.wsgi --log-file -
