@@ -1,3 +1,4 @@
+
 def get_deal_price(line, unit_prices, conversion):
     line = line.split(" ")
     if line[-1] == "?" : line.pop()  
@@ -29,12 +30,9 @@ def roman_to_integer(roman_number):
             result += integers[roman_number[i]]
         else:
             result += (integers[roman_number[i+1]] - integers[roman_number[i]])
-            #result -= integers[roman_number[i]]
             i = i+1
         i = i+1
     return result
-
-#roman_to_integer(["M", "C", "M", "I", "I", "I"])
 
 def galactic_to_roman(line, conversion):
     if line[-1] == "?" : line.pop()
@@ -45,7 +43,6 @@ def galactic_to_roman(line, conversion):
 
 
 def save_metal_price(line, metals_price):
-    print("save_metal_price recibe: ", line)
     aux = line[0].split(" ")
     metal = aux[-1]
     aux.pop()
